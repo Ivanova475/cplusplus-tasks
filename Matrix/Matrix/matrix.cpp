@@ -68,6 +68,7 @@ Matrix Matrix::operator*(const Matrix& rhs)
         
         return matrix;
     }
+
     const size_t height = GetHeight();
     const size_t width = rhs.GetWidth();
     Matrix matrix_result(height, width);

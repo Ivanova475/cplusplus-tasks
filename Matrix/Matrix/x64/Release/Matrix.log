@@ -364,7 +364,7 @@ main.cpp(27): warning C4710: 'std::string std::numpunct<wchar_t>::grouping(void)
 main.cpp(27): warning C4710: 'std::string std::numpunct<char>::grouping(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(132): note: see declaration of 'std::numpunct<char>::grouping'
   matrix.cpp
-matrix.cpp(114): warning C4189: 'temp_int': local variable is initialized but not referenced
+matrix.cpp(115): warning C4189: 'temp_int': local variable is initialized but not referenced
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\math.h(278): warning C4514: 'fpclassify': unreferenced inline function has been removed
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\math.h(283): warning C4514: 'fpclassify': unreferenced inline function has been removed
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\math.h(288): warning C4514: 'fpclassify': unreferenced inline function has been removed
@@ -619,7 +619,7 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1729): 
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1744): warning C4514: '_sprintf_l': unreferenced inline function has been removed
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): warning C4514: 'sprintf': unreferenced inline function has been removed
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1803): warning C4514: '_sprintf_s_l': unreferenced inline function has been removed
-matrix.cpp(123): warning C4710: 'int sprintf_s(char *const ,const std::size_t,const char *const ,...)': function not inlined
+matrix.cpp(124): warning C4710: 'int sprintf_s(char *const ,const std::size_t,const char *const ,...)': function not inlined
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1826): note: see declaration of 'sprintf_s'
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1854): warning C4514: '_sprintf_p_l': unreferenced inline function has been removed
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1875): warning C4514: '_sprintf_p': unreferenced inline function has been removed
@@ -657,9 +657,9 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(517): 
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(523): warning C4514: 'strpbrk': unreferenced inline function has been removed
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(529): warning C4514: 'strrchr': unreferenced inline function has been removed
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(535): warning C4514: 'strstr': unreferenced inline function has been removed
-matrix.cpp(123): warning C4710: 'std::exception_ptr std::exception_ptr::_Current_exception(void) throw()': function not inlined
+matrix.cpp(124): warning C4710: 'std::exception_ptr std::exception_ptr::_Current_exception(void) throw()': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\exception(300): note: see declaration of 'std::exception_ptr::_Current_exception'
-matrix.cpp(123): warning C4710: 'std::exception_ptr std::current_exception(void) noexcept': function not inlined
+matrix.cpp(124): warning C4710: 'std::exception_ptr std::current_exception(void) noexcept': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\exception(359): note: see declaration of 'std::current_exception'
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_wconio.h(100): warning C4514: '_vcwprintf': unreferenced inline function has been removed
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_wconio.h(127): warning C4514: '_vcwprintf_s': unreferenced inline function has been removed
@@ -688,59 +688,45 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\wchar.h(269): w
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\vcruntime_new.h(101): warning C4514: 'operator new[]': unreferenced inline function has been removed
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\vcruntime_new.h(107): warning C4514: 'operator delete[]': unreferenced inline function has been removed
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\ctype.h(175): warning C4514: '_ischartype_l': unreferenced inline function has been removed
-matrix.cpp(123): warning C4710: 'std::string std::locale::name(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::string std::locale::name(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocale(447): note: see declaration of 'std::locale::name'
-matrix.cpp(123): warning C4710: 'std::string std::error_code::message(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::string std::error_code::message(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\system_error(278): note: see declaration of 'std::error_code::message'
-matrix.cpp(123): warning C4710: 'std::string std::_System_error::_Makestr(std::error_code,std::string)': function not inlined
+matrix.cpp(124): warning C4710: 'std::string std::_System_error::_Makestr(std::error_code,std::string)': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\system_error(512): note: see declaration of 'std::_System_error::_Makestr'
-matrix.cpp(123): warning C4710: 'std::string std::_Generic_error_category::message(int) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::string std::_Generic_error_category::message(int) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\system_error(604): note: see declaration of 'std::_Generic_error_category::message'
-matrix.cpp(123): warning C4710: 'std::string std::_Iostream_error_category::message(int) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::string std::_Iostream_error_category::message(int) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\system_error(625): note: see declaration of 'std::_Iostream_error_category::message'
-matrix.cpp(123): warning C4710: 'std::string std::_System_error_category::message(int) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::string std::_System_error_category::message(int) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\system_error(649): note: see declaration of 'std::_System_error_category::message'
-matrix.cpp(123): warning C4710: 'std::locale std::ios_base::getloc(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::locale std::ios_base::getloc(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xiosbase(433): note: see declaration of 'std::ios_base::getloc'
-matrix.cpp(123): warning C4710: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>> std::numpunct<wchar_t>::do_truename(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>> std::numpunct<wchar_t>::do_truename(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(250): note: see declaration of 'std::numpunct<wchar_t>::do_truename'
-matrix.cpp(123): warning C4710: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>> std::numpunct<wchar_t>::do_falsename(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>> std::numpunct<wchar_t>::do_falsename(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(245): note: see declaration of 'std::numpunct<wchar_t>::do_falsename'
-matrix.cpp(123): warning C4710: 'std::string std::numpunct<wchar_t>::do_grouping(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::string std::numpunct<wchar_t>::do_grouping(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(240): note: see declaration of 'std::numpunct<wchar_t>::do_grouping'
-matrix.cpp(123): warning C4710: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> std::numpunct<char>::do_truename(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> std::numpunct<char>::do_truename(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(250): note: see declaration of 'std::numpunct<char>::do_truename'
-matrix.cpp(123): warning C4710: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> std::numpunct<char>::do_falsename(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> std::numpunct<char>::do_falsename(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(245): note: see declaration of 'std::numpunct<char>::do_falsename'
-matrix.cpp(123): warning C4710: 'std::string std::numpunct<char>::do_grouping(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::string std::numpunct<char>::do_grouping(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(240): note: see declaration of 'std::numpunct<char>::do_grouping'
-matrix.cpp(123): warning C4710: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>> std::numpunct<wchar_t>::truename(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>> std::numpunct<wchar_t>::truename(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(142): note: see declaration of 'std::numpunct<wchar_t>::truename'
-matrix.cpp(123): warning C4710: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>> std::numpunct<wchar_t>::falsename(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>> std::numpunct<wchar_t>::falsename(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(137): note: see declaration of 'std::numpunct<wchar_t>::falsename'
-matrix.cpp(123): warning C4710: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> std::numpunct<char>::truename(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> std::numpunct<char>::truename(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(142): note: see declaration of 'std::numpunct<char>::truename'
-matrix.cpp(123): warning C4710: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> std::numpunct<char>::falsename(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> std::numpunct<char>::falsename(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(137): note: see declaration of 'std::numpunct<char>::falsename'
-matrix.cpp(123): warning C4710: 'std::string std::numpunct<wchar_t>::grouping(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::string std::numpunct<wchar_t>::grouping(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(132): note: see declaration of 'std::numpunct<wchar_t>::grouping'
-matrix.cpp(123): warning C4710: 'std::string std::numpunct<char>::grouping(void) const': function not inlined
+matrix.cpp(124): warning C4710: 'std::string std::numpunct<char>::grouping(void) const': function not inlined
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xlocnum(132): note: see declaration of 'std::numpunct<char>::grouping'
   Generating code
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(125): warning C4710: 'class std::basic_ostream<char,struct std::char_traits<char> > & __ptr64 __cdecl std::basic_ostream<char,struct std::char_traits<char> >::flush(void) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(840): warning C4710: 'int __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::sputc(char) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(845): warning C4710: 'int __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::sputc(char) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(851): warning C4710: 'int __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::sputc(char) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(854): warning C4710: 'void __cdecl std::basic_ios<char,struct std::char_traits<char> >::setstate(int,bool) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(858): warning C4710: 'void __cdecl std::basic_ios<char,struct std::char_traits<char> >::setstate(int,bool) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(133): warning C4710: 'void __cdecl std::basic_ostream<char,struct std::char_traits<char> >::_Osfx(void) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(125): warning C4710: 'class std::basic_ostream<char,struct std::char_traits<char> > & __ptr64 __cdecl std::basic_ostream<char,struct std::char_traits<char> >::flush(void) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(796): warning C4710: 'int __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::sputc(char) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(804): warning C4710: '__int64 __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::sputn(char const * __ptr64,__int64) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(809): warning C4710: 'int __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::sputc(char) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(816): warning C4710: 'void __cdecl std::basic_ios<char,struct std::char_traits<char> >::setstate(int,bool) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(819): warning C4710: 'void __cdecl std::basic_ios<char,struct std::char_traits<char> >::setstate(int,bool) __ptr64': function not inlined
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(133): warning C4710: 'void __cdecl std::basic_ostream<char,struct std::char_traits<char> >::_Osfx(void) __ptr64': function not inlined
 c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(66): warning C4710: 'class std::basic_ostream<char,struct std::char_traits<char> > & __ptr64 __cdecl std::operator<<<struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > & __ptr64,char const * __ptr64)': function not inlined
 c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(66): warning C4710: 'class std::basic_ostream<char,struct std::char_traits<char> > & __ptr64 __cdecl std::operator<<<struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > & __ptr64,char const * __ptr64)': function not inlined
 c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(22): warning C4711: function 'unsigned __int64 __cdecl Matrix::GetHeight(void)const __ptr64' selected for automatic inline expansion
@@ -749,17 +735,17 @@ c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(64): warning C4711: 
 c:\program files (x86)\microsoft visual studio 14.0\vc\include\xutility(279): warning C4710: '__cdecl std::_Wrap_alloc<class std::allocator<class std::vector<int,class std::allocator<int> > > >::_Wrap_alloc<class std::allocator<class std::vector<int,class std::allocator<int> > > >(void) __ptr64': function not inlined
 c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(69): warning C4710: '__cdecl std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >(class std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > > const & __ptr64) __ptr64': function not inlined
 c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(976): warning C4710: 'void __cdecl std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >::_Tidy(void) __ptr64': function not inlined
-c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(71): warning C4711: function 'unsigned __int64 __cdecl Matrix::GetHeight(void)const __ptr64' selected for automatic inline expansion
+c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(72): warning C4711: function 'unsigned __int64 __cdecl Matrix::GetHeight(void)const __ptr64' selected for automatic inline expansion
 c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(22): warning C4711: function 'unsigned __int64 __cdecl Matrix::GetHeight(void)const __ptr64' selected for automatic inline expansion
-c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(72): warning C4711: function 'unsigned __int64 __cdecl Matrix::GetWidth(void)const __ptr64' selected for automatic inline expansion
+c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(73): warning C4711: function 'unsigned __int64 __cdecl Matrix::GetWidth(void)const __ptr64' selected for automatic inline expansion
 c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(6): warning C4710: 'void __cdecl std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >::resize(unsigned __int64) __ptr64': function not inlined
 c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(9): warning C4710: 'void __cdecl std::vector<int,class std::allocator<int> >::resize(unsigned __int64) __ptr64': function not inlined
 c:\program files (x86)\microsoft visual studio 14.0\vc\include\xutility(279): warning C4710: '__cdecl std::_Wrap_alloc<class std::allocator<class std::vector<int,class std::allocator<int> > > >::_Wrap_alloc<class std::allocator<class std::vector<int,class std::allocator<int> > > >(void) __ptr64': function not inlined
-c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(73): warning C4711: function '__cdecl Matrix::Matrix(unsigned __int64,unsigned __int64) __ptr64' selected for automatic inline expansion
-c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(81): warning C4711: function 'int __cdecl Matrix::GetValue(unsigned __int64,unsigned __int64)const __ptr64' selected for automatic inline expansion
-c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(81): warning C4711: function 'int __cdecl Matrix::GetValue(unsigned __int64,unsigned __int64)const __ptr64' selected for automatic inline expansion
-c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(83): warning C4711: function 'void __cdecl Matrix::SetValue(unsigned __int64,unsigned __int64,int) __ptr64' selected for automatic inline expansion
-c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(87): warning C4710: '__cdecl std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >(class std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > > const & __ptr64) __ptr64': function not inlined
+c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(74): warning C4711: function '__cdecl Matrix::Matrix(unsigned __int64,unsigned __int64) __ptr64' selected for automatic inline expansion
+c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(82): warning C4711: function 'int __cdecl Matrix::GetValue(unsigned __int64,unsigned __int64)const __ptr64' selected for automatic inline expansion
+c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(82): warning C4711: function 'int __cdecl Matrix::GetValue(unsigned __int64,unsigned __int64)const __ptr64' selected for automatic inline expansion
+c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(84): warning C4711: function 'void __cdecl Matrix::SetValue(unsigned __int64,unsigned __int64,int) __ptr64' selected for automatic inline expansion
+c:\users\1\desktop\cplusplus-tasks\matrix\matrix\matrix.cpp(88): warning C4710: '__cdecl std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >(class std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > > const & __ptr64) __ptr64': function not inlined
 c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(976): warning C4710: 'void __cdecl std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >::_Tidy(void) __ptr64': function not inlined
 c:\users\1\desktop\cplusplus-tasks\matrix\matrix\main.cpp(12): warning C4710: 'class std::basic_istream<char,struct std::char_traits<char> > & __ptr64 __cdecl std::basic_istream<char,struct std::char_traits<char> >::operator>>(int & __ptr64) __ptr64': function not inlined
 c:\users\1\desktop\cplusplus-tasks\matrix\matrix\main.cpp(12): warning C4710: 'class std::basic_istream<char,struct std::char_traits<char> > & __ptr64 __cdecl std::basic_istream<char,struct std::char_traits<char> >::operator>>(int & __ptr64) __ptr64': function not inlined
@@ -779,9 +765,9 @@ c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(976): warn
 c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(976): warning C4710: 'void __cdecl std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >::_Tidy(void) __ptr64': function not inlined
 c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(976): warning C4710: 'void __cdecl std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >::_Tidy(void) __ptr64': function not inlined
 c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(976): warning C4710: 'void __cdecl std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >::_Tidy(void) __ptr64': function not inlined
+  Finished generating code
   1 of 207 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-  Finished generating code
-    3 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Matrix.vcxproj -> C:\Users\1\Desktop\cplusplus-tasks\Matrix\x64\Release\Matrix.exe
   Matrix.vcxproj -> C:\Users\1\Desktop\cplusplus-tasks\Matrix\x64\Release\Matrix.pdb (Full PDB)
