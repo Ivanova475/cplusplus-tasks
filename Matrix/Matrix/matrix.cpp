@@ -116,7 +116,7 @@ std::ostream& operator<<(std::ostream& output_stream, const Matrix& matrix)
             int temp_int = 0;
             output_stream << matrix.GetValue(y, x) << ' ';
         }
-        output_stream << std::endl;
+        output_stream << "\n";
     }
     
     return  output_stream;
