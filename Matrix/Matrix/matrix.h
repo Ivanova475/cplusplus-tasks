@@ -20,7 +20,7 @@ public:
 
     int GetValue(const size_t height_index, const size_t width_index) const;
     void SetValue(const size_t height_index, const size_t width_index,
-        const int value);
+    const int value);
 
     Matrix Transpose() const;
 

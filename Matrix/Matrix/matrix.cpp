@@ -68,26 +68,24 @@ Matrix Matrix::operator*(const Matrix& rhs)
         
         return matrix;
     }
-    else
+    const size_t height = GetHeight();
+    const size_t width = rhs.GetWidth();
+    Matrix matrix_result(height, width);
+    for (size_t i = 0; i < height; i++)
     {
-        const size_t height = GetHeight();
-        const size_t width = rhs.GetWidth();
-        Matrix matrix_result(height, width);
-        for (size_t i = 0; i < height; i++)
+        for (size_t j = 0; j < width; j++)
         {
-            for (size_t j = 0; j < width; j++)
+            int value = 0;
+            for (size_t k = 0; k < GetWidth(); k++)
             {
-                int value = 0;
-                for (size_t k = 0; k < GetWidth(); k++)
-                {
-                    value += GetValue(i, k) * rhs.GetValue(k, j);
-                }
-                matrix_result.SetValue(i, j, value);
+                value += GetValue(i, k) * rhs.GetValue(k, j);
             }
+            matrix_result.SetValue(i, j, value);
         }
-        
-        return matrix_result;
     }
+        
+    return matrix_result;
+
 }
 
 
