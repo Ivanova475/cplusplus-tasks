@@ -86,7 +86,6 @@ Matrix Matrix::operator*(const Matrix& rhs)
     }
         
     return matrix_result;
-
 }
 
 
@@ -112,7 +111,6 @@ std::ostream& operator<<(std::ostream& output_stream, const Matrix& matrix)
     {
         for (size_t x = 0; x < matrix.GetWidth(); x++)
         {
-            int temp_int = 0;
             output_stream << matrix.GetValue(y, x) << ' ';
         }
         output_stream << "\n";
