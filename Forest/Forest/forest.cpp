@@ -1,11 +1,20 @@
 #include "forest.h"
 
 
+const int fire_time = 3;
+const int health_points_time = 5;
+const int grow_time = 2;
+
+const int tree_state = 0;
+const int burn_state = 1;
+const int grow_state = 2;
+
+
 Forest::Forest(const size_t height, const size_t width) : forest_(height, width)
 {
     Tree new_tree;
-    new_tree.curr_state = burn;
-    new_tree.elapsed_time = health_points;
+    new_tree.curr_state = burn_state;
+    new_tree.elapsed_time = health_points_time;
     forest_.SetValue(height / 2 - 1, width / 2 - 1, new_tree);
 }
 
@@ -13,114 +22,23 @@ Forest::Forest(const size_t height, const size_t width) : forest_(height, width)
 int Forest::CountBurnTreeAround(const size_t height_index, const size_t width_index) const
 {
     int burn_around = 0;
-    const size_t height = forest_.GetHeight();
-    const size_t width = forest_.GetWidth();
-    size_t t = 0;
-    size_t k = 0;
+    const int height = int(forest_.GetHeight());
+    const int width = int(forest_.GetWidth());
+    const int x = int(height_index);
+    const int y = int(width_index);
 
-    if ((height_index > 0) && (height_index < height - 1) && (width_index > 0) && (width_index < width - 1))
+    for (int i = x - 1; i <= x + 1; i++)
     {
-        for (t = height_index - 1; t < height_index + 2; t++)
+        for (int j = y - 1; j <= y + 1; j++)
         {
-            for (k = width_index - 1; k < width_index + 2; k++)
+            if ((i < 0) || (i >= height) || (j < 0) || (j >= width) || ((i == x) && (j == y)))
             {
-                if (forest_.GetValue(t, k).curr_state == burn)
-                {
-                    ++burn_around;
-                }
+                continue;
+
             }
-        }
-    } else if ((height_index == 0) && (width_index > 0) && (width_index < width - 1))
-    {
-        for (t = 0; t < height_index + 2; t++)
-        {
-            for (k = width_index - 1; k < width_index + 2; k++)
+            else
             {
-                if (forest_.GetValue(t, k).curr_state == burn)
-                {
-                    ++burn_around;
-                }
-            }
-        }
-    } else if ((height_index == height - 1) && (width_index > 0) && (width_index < width - 1))
-    {
-        for (t = height_index - 1; t < height; t++)
-        {
-            for (k = width_index - 1; k < width_index + 2; k++)
-            {
-                if (forest_.GetValue(t, k).curr_state == burn)
-                {
-                    ++burn_around;
-                }
-            }
-        }
-    } else if ((width_index == 0) && (height_index > 0) && (height_index < height - 1))
-    {
-        for (t = height_index - 1; t < height_index + 1; t++)
-        {
-            for (k = 0; k < width_index + 2; k++)
-            {
-                if (forest_.GetValue(t, k).curr_state == burn)
-                {
-                    ++burn_around;
-                }
-            }
-        }
-    } else if ((width_index == width - 1) && (height_index > 0) && (height_index < height - 1))
-    {
-        for (t = height_index - 1; t < height_index + 2; t++)
-        {
-            for (k = width_index - 1; k < width; k++)
-            {
-                if (forest_.GetValue(t, k).curr_state == burn)
-                {
-                    ++burn_around;
-                }
-            }
-        }
-    } else if ((width_index == 0) && (height_index == 0))
-    {
-        for (t = 0; t < height_index + 2; t++)
-        {
-            for (k = 0; k < width_index + 2; k++)
-            {
-                if (forest_.GetValue(t, k).curr_state == burn)
-                {
-                    ++burn_around;
-                }
-            }
-        }
-    } else if ((width_index == 0) && (height_index == height - 1))
-    {
-        for (t = height_index - 1; t < height; t++)
-        {
-            for (k = 0; k < width_index + 2; k++)
-            {
-                if (forest_.GetValue(t, k).curr_state == burn)
-                {
-                    ++burn_around;
-                }
-            }
-        }
-    } else if ((width_index == width - 1) && (height_index == 0))
-    {
-        for (t = 0; t < height_index + 2; t++)
-        {
-            for (k = width_index - 1; k < width; k++)
-            {
-                if (forest_.GetValue(t, k).curr_state == burn)
-                {
-                    ++burn_around;
-                }
-            }
-        }
-    } else if ((width_index == width - 1) && (height_index == height - 1))
-    {
-        for (t = height_index - 1; t < height; t++)
-        {
-            for (k = width_index - 1; k < width; k++)
-            {
-                if (forest_.GetValue(t, k).curr_state == burn)
+                if (forest_.GetValue(i, j).curr_state == burn_state)
                 {
                     ++burn_around;
                 }
@@ -142,55 +60,55 @@ void Forest::ForestUpdate()
     {
         for (size_t j = 0; j < width; j++)
         {
-            if (curr_forest.forest_.GetValue(i, j).curr_state == burn)
+            if (curr_forest.forest_.GetValue(i, j).curr_state == burn_state)
             {
-                new_tree.curr_state = burn;
+                new_tree.curr_state = burn_state;
                 new_tree.elapsed_time = curr_forest.forest_.GetValue(i, j).elapsed_time - 1;
                 curr_forest.forest_.SetValue(i, j, new_tree);
                 if (curr_forest.forest_.GetValue(i, j).elapsed_time > 0)
                 {
-                    new_tree.curr_state = burn;
+                    new_tree.curr_state = burn_state;
                     new_tree.elapsed_time = curr_forest.forest_.GetValue(i, j).elapsed_time;
                     forest_.SetValue(i, j, new_tree);
-                }
-                else
+
+                } else
                 {
-                    new_tree.curr_state = grow;
+                    new_tree.curr_state = grow_state;
                     new_tree.elapsed_time = grow_time;
                     forest_.SetValue(i, j, new_tree);
                 }
-            } else if (curr_forest.forest_.GetValue(i, j).curr_state == grow)
+            } else if (curr_forest.forest_.GetValue(i, j).curr_state == grow_state)
             {
-                new_tree.curr_state = grow;
+                new_tree.curr_state = grow_state;
                 new_tree.elapsed_time = curr_forest.forest_.GetValue(i, j).elapsed_time - 1;
                 curr_forest.forest_.SetValue(i, j, new_tree);
                 if (curr_forest.forest_.GetValue(i, j).elapsed_time > 0)
                 {
-                    new_tree.curr_state = grow;
+                    new_tree.curr_state = grow_state;
                     new_tree.elapsed_time = curr_forest.forest_.GetValue(i, j).elapsed_time;
                     forest_.SetValue(i, j, new_tree);
-                }
-                else
+
+                } else
                 {
-                    new_tree.curr_state = tree;
+                    new_tree.curr_state = tree_state;
                     new_tree.elapsed_time = fire_time;
                     forest_.SetValue(i, j, new_tree);
                 }
-            } else if (curr_forest.forest_.GetValue(i, j).curr_state == tree)
+            } else if (curr_forest.forest_.GetValue(i, j).curr_state == tree_state)
             {
-                new_tree.curr_state = tree;
+                new_tree.curr_state = tree_state;
                 new_tree.elapsed_time = curr_forest.forest_.GetValue(i, j).elapsed_time - curr_forest.CountBurnTreeAround(i, j);
                 curr_forest.forest_.SetValue(i, j, new_tree);
                 if (curr_forest.forest_.GetValue(i, j).elapsed_time > 0)
                 {
-                    new_tree.curr_state = tree;
+                    new_tree.curr_state = tree_state;
                     new_tree.elapsed_time = curr_forest.forest_.GetValue(i, j).elapsed_time;
                     forest_.SetValue(i, j, new_tree);
-                }
-                else
+
+                } else
                 {
-                    new_tree.curr_state = burn;
-                    new_tree.elapsed_time = health_points;
+                    new_tree.curr_state = burn_state;
+                    new_tree.elapsed_time = health_points_time;
                     forest_.SetValue(i, j, new_tree);
                 }
             }
@@ -205,13 +123,15 @@ std::ostream& operator << (std::ostream& output_stream, const Forest& forest)
     {
         for (size_t x = 0; x < forest.forest_.GetWidth(); x++)
         {
-            if (forest.forest_.GetValue(y, x).curr_state == burn)
+            if (forest.forest_.GetValue(y, x).curr_state == burn_state)
             {
                 output_stream << '*';
-            } else if (forest.forest_.GetValue(y, x).curr_state == tree)
+
+            } else if (forest.forest_.GetValue(y, x).curr_state == tree_state)
             {
                 output_stream << '|';
-            } else if (forest.forest_.GetValue(y, x).curr_state == grow)
+
+            } else if (forest.forest_.GetValue(y, x).curr_state == grow_state)
             {
                 output_stream << ' ';
             }
