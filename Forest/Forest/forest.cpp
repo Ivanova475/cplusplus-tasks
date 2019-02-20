@@ -35,8 +35,7 @@ int Forest::CountBurnTreeAround(const size_t height_index, const size_t width_in
             {
                 continue;
 
-            }
-            else
+            } else
             {
                 if (forest_.GetValue(i, j).curr_state == burn_state)
                 {
@@ -50,7 +49,7 @@ int Forest::CountBurnTreeAround(const size_t height_index, const size_t width_in
 }
 
 
-void Forest::ForestUpdate()
+void Forest::Update()
 {
     const size_t height = forest_.GetHeight();
     const size_t width = forest_.GetWidth();

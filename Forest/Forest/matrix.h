@@ -20,7 +20,7 @@ class Matrix
     size_t GetWidth() const;
 
     Tree GetValue(const size_t height_index, const size_t width_index) const;
-    void SetValue(const size_t height_index, const size_t width_index, const Tree new_tree);
+    void SetValue(const size_t height_index, const size_t width_index, const Tree& new_tree);
 
 private:
     std::vector<std::vector<Tree>> data_;

@@ -15,7 +15,7 @@ int main()
     {
         getchar();
         std::cout << forest << "\n" << std::endl;
-        forest.ForestUpdate();
+        forest.Update();
     }
 
     return 0;

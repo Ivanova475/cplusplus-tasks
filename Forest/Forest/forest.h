@@ -14,7 +14,7 @@ public:
     Forest(const size_t height, const size_t width);
     virtual ~Forest() = default;
 
-    void ForestUpdate();
+    void Update();
 
 private:
     int CountBurnTreeAround(const size_t height_index, const size_t width_index) const;

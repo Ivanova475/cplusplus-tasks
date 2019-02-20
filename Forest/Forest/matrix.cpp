@@ -36,7 +36,7 @@ Tree Matrix::GetValue(const size_t height_index, const size_t width_index) const
 }
 
 
-void Matrix::SetValue(const size_t height_index, const size_t width_index, const Tree new_tree)
+void Matrix::SetValue(const size_t height_index, const size_t width_index, const Tree& new_tree)
 {
     data_[height_index][width_index] = new_tree;
 }
