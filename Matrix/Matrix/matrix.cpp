@@ -1,13 +1,24 @@
 #include "matrix.h"
 
 
-Matrix::Matrix(const size_t height, const size_t width)
+Matrix::Matrix(const size_t height, const size_t width) 
 {
-    data_.resize(height);
+    data_.reserve(height);
+    for (size_t i = 0; i < height; i++)
+    {
+        std::vector<int> temp_vector;
+        temp_vector.reserve(width);
+        for (size_t j = 0; j < width; j++)
+        {
+            temp_vector.push_back(0);
+        }
+        data_.push_back(std::move(temp_vector));
+    }
+ /*   data_.resize(height);
     for (size_t i = 0; i < height; i++)
     {
         data_[i].resize(width);
-    }
+    }*/
 }
 
 
@@ -68,9 +79,9 @@ Matrix Matrix::operator*(const Matrix& rhs)
         
         return matrix;
     }
-
     const size_t height = GetHeight();
     const size_t width = rhs.GetWidth();
+    Matrix transpose_rhs = rhs.Transpose();
     Matrix matrix_result(height, width);
     for (size_t i = 0; i < height; i++)
     {
@@ -79,13 +90,42 @@ Matrix Matrix::operator*(const Matrix& rhs)
             int value = 0;
             for (size_t k = 0; k < GetWidth(); k++)
             {
-                value += GetValue(i, k) * rhs.GetValue(k, j);
+                value += GetValue(i, k) * transpose_rhs.GetValue(j, k);
             }
             matrix_result.SetValue(i, j, value);
         }
     }
         
     return matrix_result;
+}
+
+
+bool Matrix::operator==(const Matrix& rhs)
+{
+    if ((GetHeight() != rhs.GetHeight()) || (GetWidth() != rhs.GetWidth()))
+    {
+        return false;
+    } else
+    {
+        for (size_t i = 0; i < GetHeight(); i++)
+        {
+            for (size_t j = 0; j < GetWidth(); j++)
+            {
+                if (GetValue(i, j) != rhs.GetValue(i, j))
+                {
+                    return false;
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+
+bool Matrix::operator!=(const Matrix& rhs)
+{
+    return !(*this == rhs);
 }
 
 

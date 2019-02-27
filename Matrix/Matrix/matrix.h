@@ -4,7 +4,8 @@
 #include <vector>
 #include <istream>
 #include <ostream>
-
+#include <utility>
+#include "profile.h"
 
 class Matrix
 {
@@ -25,6 +26,9 @@ public:
     Matrix Transpose() const;
 
     Matrix operator*(const Matrix& rhs);
+
+    bool operator==(const Matrix& rhs);
+    bool operator!=(const Matrix& rhs);
 
 private:
     std::vector<std::vector<int>> data_;
