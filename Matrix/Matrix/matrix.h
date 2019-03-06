@@ -14,7 +14,6 @@ class Matrix
 public:
     Matrix(const size_t height, const size_t width);
     virtual ~Matrix() = default;
-    Matrix() = default;
 
     size_t GetHeight() const;
     size_t GetWidth() const;
@@ -25,10 +24,10 @@ public:
 
     Matrix Transpose() const;
 
-    Matrix operator*(const Matrix& rhs);
+    Matrix operator*(const Matrix& rhs) const;
 
-    bool operator==(const Matrix& rhs);
-    bool operator!=(const Matrix& rhs);
+    bool operator==(const Matrix& rhs) const;
+    bool operator!=(const Matrix& rhs) const;
 
 private:
     std::vector<std::vector<int>> data_;

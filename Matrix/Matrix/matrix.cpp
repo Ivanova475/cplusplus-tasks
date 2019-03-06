@@ -70,12 +70,12 @@ Matrix Matrix::Transpose() const
 }
 
 
-Matrix Matrix::operator*(const Matrix& rhs)
+Matrix Matrix::operator*(const Matrix& rhs) const
 {
     if (GetWidth() != rhs.GetHeight())
     {
         std::cerr << "Wrong matrix size!" << "\n";
-        Matrix matrix;
+        Matrix matrix(0, 0);
         
         return matrix;
     }
@@ -100,7 +100,7 @@ Matrix Matrix::operator*(const Matrix& rhs)
 }
 
 
-bool Matrix::operator==(const Matrix& rhs)
+bool Matrix::operator==(const Matrix& rhs) const
 {
     if ((GetHeight() != rhs.GetHeight()) || (GetWidth() != rhs.GetWidth()))
     {
@@ -123,7 +123,7 @@ bool Matrix::operator==(const Matrix& rhs)
 }
 
 
-bool Matrix::operator!=(const Matrix& rhs)
+bool Matrix::operator!=(const Matrix& rhs) const
 {
     return !(*this == rhs);
 }

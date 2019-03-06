@@ -1,0 +1,10 @@
+﻿  main.cpp
+c:\users\1\documents\visual studio 2015\projects\hash_table\hash_table\main.cpp(49): error C3779: 'HashTable::GetData': a function that returns 'auto' cannot be used before it is defined
+  c:\users\1\documents\visual studio 2015\projects\hash_table\hash_table\hash_table.h(15): note: see declaration of 'HashTable::GetData'
+c:\users\1\documents\visual studio 2015\projects\hash_table\hash_table\main.cpp(50): error C3536: 'result_table': cannot be used before it is initialized
+c:\users\1\documents\visual studio 2015\projects\hash_table\hash_table\main.cpp(50): error C2228: left of '.size' must have class/struct/union
+  c:\users\1\documents\visual studio 2015\projects\hash_table\hash_table\main.cpp(50): note: type is 'int'
+c:\users\1\documents\visual studio 2015\projects\hash_table\hash_table\main.cpp(52): error C2109: subscript requires array or pointer type
+c:\users\1\documents\visual studio 2015\projects\hash_table\hash_table\main.cpp(52): error C2228: left of '.size' must have class/struct/union
+  hash_table.cpp
+  Generating Code...
