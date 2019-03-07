@@ -7,13 +7,13 @@ const int hash_table_size = 1013;
 
 int Hash1(const std::string& new_string)
 {
-    return 1 % hash_table_size;
+    return 1;
 }
 
 
 int Hash2(const std::string& new_string)
 {
-    return new_string[0] - 0 % hash_table_size;
+    return new_string[0];
 }
 
 
@@ -22,15 +22,15 @@ int Hash3(const std::string& new_string)
     int hash = 0;
     for (size_t i = 0; i < new_string.length(); i++)
     {
-        hash += new_string[i] - 0;
+        hash += new_string[i];
     }
-    return hash % hash_table_size;
+    return hash;
 }
 
 
 int Hash4(const std::string& new_string)
 {
-    return new_string.length() % hash_table_size;
+    return new_string.length();
 }
 
 
@@ -41,7 +41,7 @@ int Hash5(const std::string& new_string)
     {
         hash += (new_string[i] << 2) * 179;
     }
-    return hash % hash_table_size;
+    return hash;
 }
 
 
@@ -59,7 +59,7 @@ int Hash6(const std::string& new_string)
         {
             hash = (hash << 1) ^ new_string[i];
         }
-        return hash % hash_table_size;
+        return hash;
     }
 }
 
@@ -104,7 +104,7 @@ void HashTable::Remove(const std::string& new_string)
 
 int HashTable::GetHash(const std::string& new_string) const
 {
-    return Hash6(new_string);
+    return Hash4(new_string) % hash_table_size;
 }
 
 
