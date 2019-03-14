@@ -34,6 +34,10 @@ int Calculator::Div(const int lhs, const int rhs)
 
 int Calculator::Power(const int value, const int power)
 {
+    if (power < 0)
+    {
+        return 0;
+    }
     if (power == 0)
     {
         return 1;
@@ -45,7 +49,7 @@ int Calculator::Power(const int value, const int power)
 
 bool Calculator::IsEqualSign(const int lhs, const int rhs)
 {
-    if (((int64_t)lhs * rhs) > 0)
+    if (((lhs >= 0) && (rhs >= 0)) || ((lhs <= 0) && (rhs <= 0)))
     {
         return true;
     }
@@ -76,6 +80,6 @@ int Calculator::GCD(const int lhs, const int rhs)
 
 int Calculator::LCM(const int lhs, const int rhs)
 {
-    int tmp = Mul(lhs, rhs);
-    return Div(abs(tmp), GCD(lhs, rhs));
+    int tmp = Div(lhs, GCD(lhs, rhs));
+    return abs(Mul(tmp, rhs));
 }

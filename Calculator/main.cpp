@@ -115,8 +115,8 @@ void TestIsEqualSign()
     Calculator calc;
 
     ASSERT_EQUAL(calc.IsEqualSign(-2, 2), 0);
-    ASSERT_EQUAL(calc.IsEqualSign(0, 2), 0);
-    ASSERT_EQUAL(calc.IsEqualSign(-2, 0), 0);
+    ASSERT_EQUAL(calc.IsEqualSign(0, 2), 1);
+    ASSERT_EQUAL(calc.IsEqualSign(-2, 0), 1);
     ASSERT_EQUAL(calc.IsEqualSign(-2000000, 2000000), 0);
     ASSERT_EQUAL(calc.IsEqualSign(100, 100), 1);
     ASSERT_EQUAL(calc.IsEqualSign(-200, -200), 1);
