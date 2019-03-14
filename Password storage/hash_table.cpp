@@ -42,7 +42,7 @@ void HashTable::Add(const std::string& key,
 
 bool HashTable::Has(const std::string& key) const
 {
-    int hash = GetHash(key);
+    const int hash = GetHash(key);
     for (auto it = begin(data_[hash]); it != end(data_[hash]); it++)
     {
         if (it->first == key)
@@ -57,7 +57,7 @@ bool HashTable::Has(const std::string& key) const
 
 void HashTable::Remove(const std::string& key)
 {
-    int hash = GetHash(key);
+    const int hash = GetHash(key);
     for (auto it = begin(data_[hash]); it != end(data_[hash]); it++)
     {
         if (it->first == key)

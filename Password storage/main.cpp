@@ -19,7 +19,7 @@ int main()
         }
         std::cout << "Correct password." << std::endl;
     }
-        else
+    else
     {
         std::cout << "Incorrect password. Try again." << std::endl;
     }

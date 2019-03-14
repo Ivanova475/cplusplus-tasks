@@ -9,7 +9,6 @@ std::string EncodeString(const std::string& string_to_encode)
     std::string encoded_string = string_to_encode;
     for (size_t i = 0; i < encoded_string.size(); i++)
     {
-
         encoded_string[i] += (i + 1);
     }
     return encoded_string;
