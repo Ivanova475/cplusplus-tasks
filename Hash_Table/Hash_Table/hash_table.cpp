@@ -1,4 +1,4 @@
-#include<algorithm>
+#include <algorithm>
 
 #include "hash_table.h"
 
@@ -52,15 +52,14 @@ int Hash6(const std::string& new_string)
     {
         return 1;
     } 
-    else
+   
+	int hash = 0;
+    for (size_t i = 0; i < new_string.length(); i++)
     {
-        int hash = 0;
-        for (size_t i = 0; i < new_string.length(); i++)
-        {
-            hash = (hash << 1) ^ new_string[i];
-        }
-        return hash;
+        hash = (hash << 1) ^ new_string[i];
     }
+        
+	return hash;
 }
 
 
