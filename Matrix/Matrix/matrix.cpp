@@ -2,14 +2,14 @@
 
 
 std::vector<std::vector<int>> Multiplication(const std::vector<std::vector<int>>& lhs,
-    const std::vector<std::vector<int>>& rhs, size_t begin_pos, size_t end_pos)
+    const std::vector<std::vector<int>>& rhs_transpose, size_t begin_pos, size_t end_pos)
 {
 	assert(begin_pos <= end_pos);
 
 	std::vector<std::vector<int>> result;
 
 	const size_t height = end_pos - begin_pos;
-	const size_t width = rhs.size();
+	const size_t width = rhs_transpose.size();
 
 	result.reserve(height);
 
@@ -21,9 +21,9 @@ std::vector<std::vector<int>> Multiplication(const std::vector<std::vector<int>>
 		for (size_t j = 0; j < width; j++)
 		{
 			int value = 0;
-			for (size_t k = 0; k < rhs[0].size(); k++)
+			for (size_t k = 0; k < rhs_transpose[0].size(); k++)
 			{
-				value += lhs[i][k] * rhs[j][k];
+				value += lhs[i][k] * rhs_transpose[j][k];
 			}
 
 			tmp.push_back(std::move(value));
@@ -119,45 +119,45 @@ Matrix Matrix::operator*(const Matrix& rhs) const
 	Matrix transpose_rhs = rhs.Transpose();
 	std::vector<std::vector<int>> rhs_part = transpose_rhs.data_;
 	std::vector<std::vector<int>> lhs_part = data_;
+	{LOG_DURATION("parallel_3")
+		const size_t threads_number = 3;
+	    const size_t one_piece_size = height / (threads_number + 1);
+	    std::vector<std::future<std::vector<std::vector<int>>>> matrix_parts;
+	    matrix_parts.reserve(threads_number);
 
-	const size_t threads_number = 3;
-	const size_t one_piece_size = height / (threads_number + 1);
-	std::vector<std::future<std::vector<std::vector<int>>>> matrix_parts;
-	matrix_parts.reserve(threads_number);
+	    for (size_t i = 0; i < threads_number; i++)
+	    {
+		    const size_t begin_pos = (i + 1) * one_piece_size;
+		    const size_t end_pos = ((i + 1 == threads_number) && (one_piece_size != 0)) ?
+			    height : (i + 2) * one_piece_size;
 
-    for (size_t i = 0; i < threads_number; i++)
-    {
-        const size_t begin_pos = (i + 1) * one_piece_size;
-        const size_t end_pos = ((i + 1 == threads_number) && (one_piece_size != 0)) ?
-            height : (i + 2) * one_piece_size;
+		    std::future<std::vector<std::vector<int>>> matrix_part = std::async(
+			    std::launch::async, Multiplication, lhs_part, rhs_part, begin_pos, end_pos
+		    );
 
-        std::future<std::vector<std::vector<int>>> matrix_part = std::async(
-             std::launch::async, Multiplication, lhs_part, rhs_part, begin_pos, end_pos
-        );
+		    matrix_parts.push_back(std::move(matrix_part));
+	    }
 
-        matrix_parts.push_back(std::move(matrix_part));
-    }
+	    const size_t begin_pos = 0;
+	    const size_t end_pos = (one_piece_size == 0) ?
+		    height : one_piece_size;
+	    std::vector<std::vector<int>> result_matrix = Multiplication(lhs_part, rhs_part, begin_pos, end_pos);
 
-	const size_t begin_pos = 0;
-	const size_t end_pos = (one_piece_size == 0) ?
-		height : one_piece_size;
-	std::vector<std::vector<int>> result_matrix = Multiplication(lhs_part, rhs_part, begin_pos, end_pos);
+	    for (size_t i = 0; i < threads_number; i++)
+	    {
+		    matrix_parts[i].wait();
+		    std::vector<std::vector<int>> part = matrix_parts[i].get();
 
-    for (size_t i = 0; i < threads_number; i++)
-    {
-        matrix_parts[i].wait();
-        std::vector<std::vector<int>> part = matrix_parts[i].get();
+		    for (size_t j = 0; j < part.size(); j++)
+		    {
+			    result_matrix.push_back(std::move(part[j]));
+		    }
+	    }
 
-        for (size_t j = 0; j < part.size(); j++)
-        {
-            result_matrix.push_back(std::move(part[j]));
-        }
-    }
-
-	Matrix matrix_result(0, 0);
-	matrix_result.data_ = result_matrix;
-
-	return matrix_result;
+	    Matrix matrix_result(0, 0);
+	    matrix_result.data_ = result_matrix;
+	    return matrix_result;
+	}
 }
 
 
@@ -220,3 +220,34 @@ std::ostream& operator<<(std::ostream& output_stream, const Matrix& matrix)
 
 	return  output_stream;
 }
+
+
+/*Matrix Matrix::operator*(const Matrix& rhs) const 
+{
+	if (GetWidth() != rhs.GetHeight())
+	{
+		std::cerr << "Wrong matrix size!" << "\n";
+		Matrix matrix(0, 0);
+
+		return matrix;
+	}
+	const size_t height = GetHeight();
+	const size_t width = rhs.GetWidth();
+	Matrix matrix_result(height, width);
+	{LOG_DURATION("Non cache friendly")
+		for (size_t i = 0; i < height; i++)
+		{
+			for (size_t j = 0; j < width; j++)
+			{
+				int value = 0;
+				for (size_t k = 0; k < GetWidth(); k++)
+				{
+					value += GetValue(i, k) * rhs.GetValue(k, j);
+				}
+				matrix_result.SetValue(i, j, value);
+			}
+		}
+	}
+		return matrix_result;
+
+}*/

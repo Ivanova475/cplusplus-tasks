@@ -252,7 +252,7 @@ void TestMultiplication()
 }
 
 
-int main()
+void RunTests()
 {
 	TestGetHeight();
 	TestGetWidth();
@@ -261,6 +261,13 @@ int main()
 	TestEqual();
 	TestTranspose();
 	TestMultiplication();
+}
 
+
+int main()
+{
+	Matrix m1(1000, 1000);
+	Matrix m2(1000, 1000);
+	auto m3 = m1 * m2;
 	return 0;
 }
