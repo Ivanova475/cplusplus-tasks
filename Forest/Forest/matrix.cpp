@@ -44,6 +44,6 @@ void Matrix::SetValue(const size_t height_index, const size_t width_index, const
 
 auto Matrix::GetData()
 {
-	return data_;
+    return data_;
 }
 

@@ -10,12 +10,42 @@ extern const int burn_state = 1;
 extern const int grow_state = 2;
 
 
-Forest::Forest(const size_t height, const size_t width) : forest_(height, width)
+Forest::Forest(const size_t height, const size_t width,
+    const double rect_size)
+    : forest_(height, width)
+    , rect_size_(rect_size)
 {
     Tree new_tree;
     new_tree.curr_state = burn_state;
     new_tree.elapsed_time = health_points_time;
     forest_.SetValue(height / 2 - 1, width / 2 - 1, new_tree);
+
+    const sf::Vector2f size_of_rect(rect_size, rect_size);
+
+    tree_.setFillColor(sf::Color::White);
+    tree_.setOrigin(sf::Vector2f(size_of_rect.x / 2.0f, size_of_rect.y / 2.0f));
+    tree_.setSize(sf::Vector2f(size_of_rect.x, size_of_rect.y));
+
+    fire_.setFillColor(sf::Color::White);
+    fire_.setOrigin(sf::Vector2f(size_of_rect.x / 2.0f, size_of_rect.y / 2.0f));
+    fire_.setSize(sf::Vector2f(size_of_rect.x, size_of_rect.y));
+
+    grow_.setFillColor(sf::Color::White);
+    grow_.setOrigin(sf::Vector2f(size_of_rect.x / 2.0f, size_of_rect.y / 2.0f));
+    grow_.setSize(sf::Vector2f(size_of_rect.x, size_of_rect.y));
+
+    tree_texture_.loadFromFile("../data/tree.png");
+    tree_texture_.setSmooth(true);
+
+    fire_texture_.loadFromFile("../data/burn.png");
+    fire_texture_.setSmooth(true);
+
+    grow_texture_.loadFromFile("../data/grow.png");
+    grow_texture_.setSmooth(true);
+
+    tree_.setTexture(&tree_texture_);
+    fire_.setTexture(&fire_texture_);
+    grow_.setTexture(&grow_texture_);
 }
 
 
@@ -144,7 +174,36 @@ std::ostream& operator << (std::ostream& output_stream, const Forest& forest)
 
 Tree Forest::GetValue(const size_t height_index, const size_t width_index)
 {
-	return forest_.GetValue(height_index, width_index);
+    return forest_.GetValue(height_index, width_index);
+}
+
+
+void Forest::Render(sf::RenderWindow& window)
+{
+    const size_t height = forest_.GetHeight();
+    const size_t width = forest_.GetWidth();
+
+    for (size_t y = 0; y < height; y++)
+    {
+        for (size_t x = 0; x < width; x++)
+        {
+            if (forest_.GetValue(x, y).curr_state == burn_state)
+            {
+                fire_.setPosition(sf::Vector2f((1 + x) * rect_size_, (1 + y) * rect_size_));
+                window.draw(fire_);
+            }
+            else if (forest_.GetValue(x, y).curr_state == tree_state)
+            {
+                tree_.setPosition(sf::Vector2f((1 + x) * rect_size_, (1 + y) * rect_size_));
+                window.draw(tree_);
+            }
+            else if (forest_.GetValue(x, y).curr_state == grow_state)
+            {
+                grow_.setPosition(sf::Vector2f((1 + x) * rect_size_, (1 + y) * rect_size_));
+                window.draw(grow_);
+            }
+        }
+    }
 }
 
 

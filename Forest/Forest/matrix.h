@@ -22,7 +22,7 @@ class Matrix
     Tree GetValue(const size_t height_index, const size_t width_index) const;
     void SetValue(const size_t height_index, const size_t width_index, const Tree& new_tree);
 
-	auto GetData();
+    auto GetData();
 
 private:
     std::vector<std::vector<Tree>> data_;

@@ -7,27 +7,27 @@
 class Game
 {
 public:
-	Game();
-	virtual ~Game() = default;
+    Game();
+    virtual ~Game() = default;
 
-	void Run();
-	void HandleInput();
-	void Update();
-	void Render();
+    void Run();
+    void HandleInput();
+    void Update();
+    void Render();
 
 
 private:
-	Window main_window_;
+    Window main_window_;
 
-	sf::RectangleShape tree_;
-	sf::RectangleShape fire_;
-	sf::RectangleShape grow_;
+    sf::RectangleShape tree_;
+    sf::RectangleShape fire_;
+    sf::RectangleShape grow_;
 
-	sf::Texture tree_texture_;
-	sf::Texture fire_texture_;
-	sf::Texture grow_texture_;
+    sf::Texture tree_texture_;
+    sf::Texture fire_texture_;
+    sf::Texture grow_texture_;
 
-	Forest game_forest_;
+    Forest game_forest_;
 };
 
 
