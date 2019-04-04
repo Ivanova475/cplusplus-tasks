@@ -1,13 +1,13 @@
 #include "forest.h"
 
 
-const int fire_time = 3;
+const int fire_time = 4;
 const int health_points_time = 5;
 const int grow_time = 2;
 
-const int tree_state = 0;
-const int burn_state = 1;
-const int grow_state = 2;
+extern const int tree_state = 0;
+extern const int burn_state = 1;
+extern const int grow_state = 2;
 
 
 Forest::Forest(const size_t height, const size_t width) : forest_(height, width)
@@ -140,3 +140,11 @@ std::ostream& operator << (std::ostream& output_stream, const Forest& forest)
 
     return  output_stream;
 }
+
+
+Tree Forest::GetValue(const size_t height_index, const size_t width_index)
+{
+	return forest_.GetValue(height_index, width_index);
+}
+
+

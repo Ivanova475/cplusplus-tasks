@@ -1,4 +1,19 @@
-#include <iostream>
+#include <SFML/Graphics.hpp>
+
+#include "game.h"
+
+
+
+int main()
+{
+	Game game;
+	game.Run();
+
+	return 0;
+}
+
+
+/*#include <iostream>
 
 #include "forest.h"
 
@@ -20,4 +35,7 @@ int main()
 
     return 0;
 }
+*/
+
+
 

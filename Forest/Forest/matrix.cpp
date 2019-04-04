@@ -41,3 +41,9 @@ void Matrix::SetValue(const size_t height_index, const size_t width_index, const
     data_[height_index][width_index] = new_tree;
 }
 
+
+auto Matrix::GetData()
+{
+	return data_;
+}
+

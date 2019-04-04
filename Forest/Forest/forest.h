@@ -16,6 +16,8 @@ public:
 
     void Update();
 
+	Tree GetValue(const size_t height_index, const size_t width_index);
+
 private:
     int CountBurnTreeAround(const size_t height_index, const size_t width_index) const;
 
