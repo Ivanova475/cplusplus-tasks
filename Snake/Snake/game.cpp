@@ -16,7 +16,7 @@ Game::Game()
 
 void Game::Run()
 {
-    const float updates_per_seconds = 2.0f;
+    const float updates_per_seconds = 5.0f;
     const sf::Time time_per_update = sf::seconds(
         1.0f / updates_per_seconds
     );

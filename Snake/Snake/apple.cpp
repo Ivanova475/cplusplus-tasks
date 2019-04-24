@@ -20,7 +20,7 @@ sf::Vector2i Apple::GetPosition() const
 
 void Apple::Update(const float dt)
 {
-    //здесь ничего не нужно
+    //Здесь ничего не нужно
 }
 
 
@@ -32,7 +32,7 @@ void Apple::Render(sf::RenderWindow& window)
         position_.x * BLOCK_SIZE, position_.y * BLOCK_SIZE
     ));
 
-    shape_.setFillColor(sf::Color::Green);
+    shape_.setFillColor(sf::Color::Red);
     window.draw(shape_);
 }
 

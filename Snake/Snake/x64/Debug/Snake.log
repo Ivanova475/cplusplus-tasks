@@ -1,3 +1,6 @@
-﻿  game.cpp
-  Snake.vcxproj -> C:\Users\1\Documents\Visual Studio 2015\Projects\Snake\x64\Debug\Snake.exe
-  Snake.vcxproj -> C:\Users\1\Documents\Visual Studio 2015\Projects\Snake\x64\Debug\Snake.pdb (Full PDB)
+﻿  snake.cpp
+  game.cpp
+  apple.cpp
+  Generating Code...
+  Snake.vcxproj -> C:\Users\1\Desktop\Snake\x64\Debug\Snake.exe
+  Snake.vcxproj -> C:\Users\1\Desktop\Snake\x64\Debug\Snake.pdb (Full PDB)

@@ -9,7 +9,7 @@ void Snake::Create(const sf::Vector2i& head_position)
     Segment head = {
         head_position,
         sf::RectangleShape(),
-        sf::Color::Magenta
+        sf::Color::Green
     };
 
     body_.push_back(std::move(head));
@@ -19,6 +19,13 @@ void Snake::Create(const sf::Vector2i& head_position)
 
 bool Snake::CheckSelfCollisison() const
 {
+    assert(!body_.empty());
+
+    if (body_.size() == 1)
+    {
+        return false;
+    }
+
     for (size_t i = 1; i < body_.size(); i++)
     {
          if (body_[0].position == body_[i].position)
@@ -87,8 +94,6 @@ void Snake::MoveByOneCell()
     case Snake::Left:
         --body_.begin()->position.x;
         break;
-    case Snake::None:
-        break;
     default:
         break;
     }
@@ -119,8 +124,6 @@ void Snake::Grow()
         case Snake::Left:
             new_tail_position.x = body_[0].position.x + 1;
             new_tail_position.y = body_[0].position.y;
-            break;
-        case Snake::None:
             break;
         default:
             break;
