@@ -20,7 +20,7 @@ sf::Vector2i Apple::GetPosition() const
 
 void Apple::Update(const float dt)
 {
-    //Здесь ничего не нужно
+    //‡десь ничего не нужно 
 }
 
 
